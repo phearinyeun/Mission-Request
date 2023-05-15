@@ -1,4 +1,4 @@
 package com.mission.request.controllers;
 
-public class UserController {
+public class ApprovalController {
 }
