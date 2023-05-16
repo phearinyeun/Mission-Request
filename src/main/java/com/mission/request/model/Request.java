@@ -1,14 +1,15 @@
 package com.mission.request.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mission.request.enums.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -24,7 +25,8 @@ public class Request {
 
     private Long id;
     private String requestBy;
-    private LocalDate requestDate;
+    private String role;
+    private LocalDateTime requestDateTime;
     private String department;
     private String transportation;
     @ManyToMany(fetch = FetchType.LAZY)
@@ -33,8 +35,16 @@ public class Request {
             joinColumns = @JoinColumn(name = "requests_id"),
             inverseJoinColumns = @JoinColumn(name = "approvals_id")
     )
-    private Set<Approval> approvals = new HashSet<>();
-    private List<String> members;
+    private Set<Approval> approval;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "request_members",
+            joinColumns = @JoinColumn(name = "requests_id"),
+            inverseJoinColumns = @JoinColumn(name = "members_id")
+    )
+    @JsonIgnore
+    private List<Members> members;
     private String purpose;
     private LocalDate missionDate;
     private LocalDateTime startDate;
@@ -45,4 +55,10 @@ public class Request {
     private String sbiSavingAccount;
     private Status status;
 
+    public LocalDateTime getRequestDate() {
+        return LocalDateTime.now();
+    }
+    public void setRequestDate(LocalDateTime requestDate) {
+        this.requestDateTime = LocalDateTime.now();
+    }
 }

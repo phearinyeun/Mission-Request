@@ -1,0 +1,27 @@
+package com.mission.request.model;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.Set;
+
+@Entity
+@Getter
+@Setter
+@Table(name = "members")
+@NoArgsConstructor
+@AllArgsConstructor
+public class Members {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    private String name;
+    private String role;
+    @ManyToMany(mappedBy = "members" ,fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<Request> requests;
+}

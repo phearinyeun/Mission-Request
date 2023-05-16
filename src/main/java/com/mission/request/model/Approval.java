@@ -20,8 +20,8 @@ public class Approval {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "approvals")
-    private Set<Request> requests = new HashSet<>();
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "approval")
+    private Set<Request> request;
     private String requestDate;
     private String approvedDate;
     private Status status;
