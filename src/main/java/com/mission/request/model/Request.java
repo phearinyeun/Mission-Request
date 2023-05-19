@@ -1,6 +1,5 @@
 package com.mission.request.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mission.request.enums.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -9,6 +8,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -42,8 +42,7 @@ public class Request {
             joinColumns = @JoinColumn(name = "requests_id"),
             inverseJoinColumns = @JoinColumn(name = "members_id")
     )
-    @JsonIgnore
-    private List<Members> members;
+    private List<Members> members = new ArrayList<>();
     private String purpose;
     private LocalDate missionDate;
     private LocalDateTime startDate;

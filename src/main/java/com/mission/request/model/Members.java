@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -23,6 +24,6 @@ public class Members {
 
     private String name;
     private String role;
-    @ManyToMany(mappedBy = "members" ,fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Request> requests;
+    @ManyToMany(fetch = FetchType.LAZY)
+    private Set<Request> requests = new HashSet<>();
 }

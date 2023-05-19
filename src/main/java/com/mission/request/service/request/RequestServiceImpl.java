@@ -5,6 +5,7 @@ import com.mission.request.repository.RequestRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,12 +26,17 @@ public class RequestServiceImpl implements RequestService{
 
     @Override
     public List<Request> findRequest(){
-        return requestRepository.findAll();
+        List<Request> requests = new ArrayList<>(requestRepository.findAll());
+        return requests;
     }
 
     @Override
     public Optional<Request> findById(Long id) {
-        return requestRepository.findById(id);
+        List<Request> requests = requestRepository.findRequest();
+        if(!requests.isEmpty()){
+            return requestRepository.findById(id);
+        }
+        return null;
     }
 
     @Override
