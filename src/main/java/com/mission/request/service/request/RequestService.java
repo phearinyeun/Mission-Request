@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface RequestService {
     Request create(Request request);
-    List<Request> getAll();
+    List<Request> findRequest();
     Optional<Request> findById(Long id);
     List<Request> update(Request request, Long id);
     Optional<Request> deleteById(Long id);

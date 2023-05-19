@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface RequestRepository extends JpaRepository<Request, Long> {
 
-
+    @Query(value = "SELECT r FROM Request r")
+    List<Request> findRequest();
 }

@@ -3,7 +3,6 @@ package com.mission.request.service.request;
 import com.mission.request.model.Request;
 import com.mission.request.repository.RequestRepository;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +17,6 @@ public class RequestServiceImpl implements RequestService{
     public Request create(Request request) {
         Optional<Request> requestOptional = requestRepository.findById(request.getId());
         if (requestOptional.isPresent()){
-//            requestRepository.deleteById(request.getId());
             request.setId(request.getId());
             return requestRepository.save(request);
         }
@@ -26,7 +24,7 @@ public class RequestServiceImpl implements RequestService{
     }
 
     @Override
-    public List<Request> getAll() {
+    public List<Request> findRequest(){
         return requestRepository.findAll();
     }
 

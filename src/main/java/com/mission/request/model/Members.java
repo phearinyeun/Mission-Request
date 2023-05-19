@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,6 +23,6 @@ public class Members {
 
     private String name;
     private String role;
-    @ManyToMany(mappedBy = "members" ,fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "members" ,fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Request> requests;
 }

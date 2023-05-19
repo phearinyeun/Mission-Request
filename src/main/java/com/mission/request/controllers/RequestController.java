@@ -16,8 +16,8 @@ public class RequestController {
     private RequestServiceImpl requestService;
 
     @GetMapping
-    public List<Request> getAll(){
-        return requestService.getAll();
+    public List<Request> getAll() {
+        return requestService.findRequest();
     }
     @GetMapping("/{id}")
     public Optional<Request> findById(@PathVariable Long id){
