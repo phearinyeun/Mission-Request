@@ -1,32 +1,37 @@
 package com.mission.request.service.request;
 
+import com.mission.request.exception.NotFoundException;
 import com.mission.request.model.Request;
+import com.mission.request.repository.MembersRepository;
 import com.mission.request.repository.RequestRepository;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor
+@Slf4j
+@RequiredArgsConstructor
 public class RequestServiceImpl implements RequestService{
-    private RequestRepository requestRepository;
+    private final RequestRepository requestRepository;
+    private final MembersRepository membersRepository;
+
+    private final Logger logger = LoggerFactory.getLogger(RequestServiceImpl.class);
 
     @Override
     public Request create(Request request) {
-        Optional<Request> requestOptional = requestRepository.findById(request.getId());
-        if (requestOptional.isPresent()){
-            request.setId(request.getId());
-            return requestRepository.save(request);
-        }
+        logger.info("Success created Request {} ", request);
         return requestRepository.save(request);
     }
 
     @Override
     public List<Request> findRequest(){
-        List<Request> requests = new ArrayList<>(requestRepository.findAll());
+        List<Request> requests = requestRepository.findAll();
+        logger.info("Success get request {}", requests);
         return requests;
     }
 
@@ -34,9 +39,11 @@ public class RequestServiceImpl implements RequestService{
     public Optional<Request> findById(Long id) {
         List<Request> requests = requestRepository.findRequest();
         if(!requests.isEmpty()){
+            log.info("Success get by id {}: {}", id, requests);
             return requestRepository.findById(id);
         }
-        return null;
+        logger.info("Not found and id {} :", id);
+        return Optional.empty();
     }
 
     @Override
@@ -44,9 +51,10 @@ public class RequestServiceImpl implements RequestService{
         Optional<Request> requestOptional = requestRepository.findById(id);
         if (requestOptional.isPresent()){
             request.setId(id);
-            requestRepository.save(request);
+            logger.info("Success updated request by id {} : {}", id, request);
+            return List.of(request);
         }
-        return null;
+        throw new NotFoundException();
     }
 
     @Override

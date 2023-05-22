@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -14,6 +15,7 @@ import java.util.Set;
 
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name = "requests")
 @RequiredArgsConstructor
@@ -28,7 +30,7 @@ public class Request {
     private LocalDateTime requestDateTime;
     private String department;
     private String transportation;
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "request_approval",
             joinColumns = @JoinColumn(name = "requests_id"),
@@ -36,12 +38,13 @@ public class Request {
     )
     private Set<Approval> approval;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "request_members",
             joinColumns = @JoinColumn(name = "requests_id"),
             inverseJoinColumns = @JoinColumn(name = "members_id")
     )
+    @ToString.Exclude
     private List<Members> members = new ArrayList<>();
     private String purpose;
     private LocalDate missionDate;

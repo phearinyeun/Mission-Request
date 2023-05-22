@@ -6,9 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -24,6 +23,6 @@ public class Members {
 
     private String name;
     private String role;
-    @ManyToMany(fetch = FetchType.LAZY)
-    private Set<Request> requests = new HashSet<>();
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Request> requests = new ArrayList<>();
 }
