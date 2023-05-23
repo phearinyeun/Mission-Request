@@ -25,9 +25,8 @@ public class RequestController {
     }
 
     @GetMapping("/delete/{id}")
-    public Optional<Request> deleteById(@PathVariable Long id){
-        requestService.deleteById(id);
-        return Optional.empty();
+    public Optional<Request> deleteById(@PathVariable("id") Long id){
+        return requestService.deleteById(id);
     }
     @PostMapping
     public Request create(@RequestBody Request request){

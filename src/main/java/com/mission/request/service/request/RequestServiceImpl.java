@@ -1,8 +1,8 @@
 package com.mission.request.service.request;
 
-import com.mission.request.exception.NotFoundException;
+import com.mission.request.exception.NotFound.RequestNotFoundException;
+import com.mission.request.exception.SuccessException;
 import com.mission.request.model.Request;
-import com.mission.request.repository.MembersRepository;
 import com.mission.request.repository.RequestRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class RequestServiceImpl implements RequestService{
     private final RequestRepository requestRepository;
-    private final MembersRepository membersRepository;
 
     private final Logger logger = LoggerFactory.getLogger(RequestServiceImpl.class);
 
@@ -37,13 +36,13 @@ public class RequestServiceImpl implements RequestService{
 
     @Override
     public Optional<Request> findById(Long id) {
-        List<Request> requests = requestRepository.findRequest();
-        if(!requests.isEmpty()){
+        Optional<Request> requests = requestRepository.findById(id);
+        if(requests.isPresent()){
             log.info("Success get by id {}: {}", id, requests);
             return requestRepository.findById(id);
         }
-        logger.info("Not found and id {} :", id);
-        return Optional.empty();
+        logger.info("Not found and id {}", id);
+        throw new RequestNotFoundException();
     }
 
     @Override
@@ -54,11 +53,17 @@ public class RequestServiceImpl implements RequestService{
             logger.info("Success updated request by id {} : {}", id, request);
             return List.of(request);
         }
-        throw new NotFoundException();
+        throw new RequestNotFoundException();
     }
 
     @Override
     public Optional<Request> deleteById(Long id) {
-        return requestRepository.findById(id);
+        Optional<Request> requests = findById(id);
+        if(requests.isPresent()){
+            logger.info("Success deleted by id {} ", id);
+            requestRepository.deleteById(id);
+            throw new SuccessException();
+        }
+        throw new RequestNotFoundException();
     }
 }
