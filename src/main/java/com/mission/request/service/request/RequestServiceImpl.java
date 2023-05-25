@@ -1,5 +1,6 @@
 package com.mission.request.service.request;
 
+import com.mission.request.enums.Status;
 import com.mission.request.exception.NotFound.RequestNotFoundException;
 import com.mission.request.exception.SuccessException;
 import com.mission.request.model.Request;
@@ -27,6 +28,8 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public Request create(Request request) {
+//        Status status = Status.PENDING;
+        request.setStatus(Status.PENDING);
         logger.info("Success created Request {} ", request);
         return requestRepository.save(request);
     }
@@ -36,7 +39,7 @@ public class RequestServiceImpl implements RequestService {
         Pageable paging = PageRequest.of(pageable.getPageNumber(),
                 pageable.getPageSize(),
                 Sort.by("requestBy").ascending());
-        log.info("Get Page: {} Page size: {} Sort By: {} {} ", pageable.getPageNumber(), pageable.getPageSize(), pageable.getSort() , paging);
+        log.info("Get Page: {} Page size: {} Sort By: {} {} ", pageable.getPageNumber(), pageable.getPageSize(), pageable.getSort(), paging);
         return requestRepository.findAll(paging);
     }
 
@@ -54,9 +57,9 @@ public class RequestServiceImpl implements RequestService {
     @Override
     public List<Request> update(Request request, Long id) {
         Optional<Request> requestOptional = requestRepository.findById(id);
-        if (requestOptional.isPresent()) {
+        if (requestOptional.isPresent() && requestOptional.get().getStatus().equals(Status.PENDING)) {
             request.setId(id);
-            logger.info("Success updated request by id {} : {}", id, request);
+            requestRepository.save(request);
             return List.of(request);
         }
         throw new RequestNotFoundException();

@@ -36,7 +36,7 @@ public class RequestController {
     }
 
     @PostMapping("/update/{id}")
-    public List<Request> update(@RequestBody Request request, @PathVariable("id") Long id){
+    public List<Request> update(@RequestBody Request request, @PathVariable Long id){
         return requestService.update(request, id);
     }
 

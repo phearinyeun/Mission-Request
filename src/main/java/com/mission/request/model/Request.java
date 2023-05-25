@@ -54,6 +54,7 @@ public class Request {
     private String sbiAccountName;
     private String amount;
     private String sbiSavingAccount;
+//    @Enumerated(EnumType.STRING)
     private Status status;
 
     public LocalDateTime getRequestDate() {
