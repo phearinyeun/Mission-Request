@@ -1,9 +1,9 @@
 package com.mission.request.service.request;
 
+import com.mission.request.dto.RequestDto;
 import com.mission.request.enums.Status;
 import com.mission.request.exception.NotFound.RequestNotFoundException;
 import com.mission.request.exception.SuccessException;
-import com.mission.request.model.Request;
 import com.mission.request.repository.RequestRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +27,7 @@ public class RequestServiceImpl implements RequestService {
     private final Logger logger = LoggerFactory.getLogger(RequestServiceImpl.class);
 
     @Override
-    public Request create(Request request) {
+    public RequestDto create(RequestDto request) {
 //        Status status = Status.PENDING;
         request.setStatus(Status.PENDING);
         logger.info("Success created Request {} ", request);
@@ -35,7 +35,7 @@ public class RequestServiceImpl implements RequestService {
     }
 
     @Override
-    public Page<Request> findByRequestBy(String requestBy, Pageable pageable) {
+    public Page<RequestDto> findByRequestBy(String requestBy, Pageable pageable) {
         Pageable paging = PageRequest.of(pageable.getPageNumber(),
                 pageable.getPageSize(),
                 Sort.by("requestBy").ascending());
@@ -44,21 +44,21 @@ public class RequestServiceImpl implements RequestService {
     }
 
     @Override
-    public Optional<Request> findById(Long id) {
-        Optional<Request> requests = requestRepository.findById(id);
+    public Optional<RequestDto> findById(Long requestId) {
+        Optional<RequestDto> requests = requestRepository.findById(requestId);
         if (requests.isPresent()) {
-            log.info("Success get by id {}: {}", id, requests);
-            return requestRepository.findById(id);
+            log.info("Success get by id {}: {}", requestId, requests);
+            return requestRepository.findById(requestId);
         }
-        logger.info("Not found and id {}", id);
+        logger.info("Not found and id {}", requestId);
         throw new RequestNotFoundException();
     }
 
     @Override
-    public List<Request> update(Request request, Long id) {
-        Optional<Request> requestOptional = requestRepository.findById(id);
+    public List<RequestDto> update(RequestDto request, Long requestId) {
+        Optional<RequestDto> requestOptional = requestRepository.findById(requestId);
         if (requestOptional.isPresent() && requestOptional.get().getStatus().equals(Status.PENDING)) {
-            request.setId(id);
+            request.setRequestId(requestId);
             requestRepository.save(request);
             return List.of(request);
         }
@@ -66,11 +66,11 @@ public class RequestServiceImpl implements RequestService {
     }
 
     @Override
-    public Optional<Request> deleteById(Long id) {
-        Optional<Request> requests = findById(id);
+    public Optional<RequestDto> deleteById(Long requestId) {
+        Optional<RequestDto> requests = findById(requestId);
         if (requests.isPresent()) {
-            logger.info("Success deleted by id {} ", id);
-            requestRepository.deleteById(id);
+            logger.info("Success deleted by id {} ", requestId);
+            requestRepository.deleteById(requestId);
             throw new SuccessException();
         }
         throw new RequestNotFoundException();

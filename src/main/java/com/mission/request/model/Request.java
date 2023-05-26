@@ -25,7 +25,7 @@ public class Request {
     @Column(name = "id", nullable = false)
 
     private Long id;
-    private String requestBy;
+    private String username;
     private String role;
     private LocalDateTime requestDateTime;
     private String department;

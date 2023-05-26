@@ -1,8 +1,10 @@
 package com.mission.request.controllers;
 
+import com.mission.request.dto.RequestDto;
 import com.mission.request.model.Request;
 import com.mission.request.service.request.RequestServiceImpl;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
@@ -13,31 +15,31 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/request")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class RequestController {
-    private RequestServiceImpl requestService;
+    private final RequestServiceImpl requestService;
 
     @GetMapping
-    public Page<Request> getAll(String requestBy, Pageable pageable) {
-        return requestService.findByRequestBy(requestBy, pageable);
+    public Page<RequestDto> getAll(String requestUsername, Pageable pageable) {
+        return requestService.findByRequestBy(requestUsername, pageable);
     }
     @GetMapping("/{id}")
-    public Optional<Request> findById(@PathVariable Long id){
-        return requestService.findById(id);
+    public Optional<RequestDto> findById(@PathVariable Long requestId){
+        return requestService.findById(requestId);
     }
 
-    @GetMapping("/delete/{id}")
-    public Optional<Request> deleteById(@PathVariable("id") Long id){
-        return requestService.deleteById(id);
+    @GetMapping("/delete/{requestId}")
+    public Optional<RequestDto> deleteById(@PathVariable("requestId") Long requestId){
+        return requestService.deleteById(requestId);
     }
     @PostMapping
-    public Request create(@RequestBody Request request){
+    public RequestDto create(@RequestBody RequestDto request){
         return requestService.create(request);
     }
 
     @PostMapping("/update/{id}")
-    public List<Request> update(@RequestBody Request request, @PathVariable Long id){
-        return requestService.update(request, id);
+    public List<RequestDto> update(@RequestBody RequestDto request, @PathVariable Long requestId){
+        return requestService.update(request, requestId);
     }
 
 }
