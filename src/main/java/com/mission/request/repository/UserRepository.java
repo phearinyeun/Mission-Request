@@ -1,13 +1,13 @@
-package com.mission.request.repository;
-
-import com.mission.request.model.user.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-import java.util.Optional;
-
-@Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-
-    Optional<User> findByUsername(String username);
-}
+//package com.mission.request.repository;
+//
+//import com.mission.request.model.user.User;
+//import org.springframework.data.jpa.repository.JpaRepository;
+//import org.springframework.stereotype.Repository;
+//
+//import java.util.Optional;
+//
+//@Repository
+//public interface UserRepository extends JpaRepository<User, Long> {
+//
+//    Optional<User> findByUsername(String username);
+//}

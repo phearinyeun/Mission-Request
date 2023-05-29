@@ -1,12 +1,10 @@
 package com.mission.request.repository;
 
-import com.mission.request.dto.RequestDto;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.mission.request.model.Request;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RequestRepository extends JpaRepository<RequestDto, Long> {
-    Page<RequestDto> findByRequestBy(String requestUsername, Pageable pageable);
+public interface RequestRepository extends JpaRepository<Request, Long> {
+
 }

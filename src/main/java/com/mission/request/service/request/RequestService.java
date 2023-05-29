@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface RequestService {
-    RequestDto create(RequestDto request);
-    Page<RequestDto> findByRequestBy(String requestBy, Pageable pageable);
-    Optional<RequestDto> findById(Long requestId);
-    List<RequestDto> update(RequestDto request, Long requestId);
-    Optional<RequestDto> deleteById(Long requestId);
+    Request create(RequestDto request);
+//    Page<RequestDto> getAllRequest(Pageable pageable);
+//    Optional<RequestDto> findById(Long requestId);
+//    List<RequestDto> update(RequestDto request, Long requestId);
+//    Optional<RequestDto> deleteById(Long requestId);
 
 }

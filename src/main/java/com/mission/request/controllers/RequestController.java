@@ -1,6 +1,7 @@
 package com.mission.request.controllers;
 
 import com.mission.request.dto.RequestDto;
+import com.mission.request.mapper.RequestMapper;
 import com.mission.request.model.Request;
 import com.mission.request.service.request.RequestServiceImpl;
 import lombok.AllArgsConstructor;
@@ -19,27 +20,27 @@ import java.util.Optional;
 public class RequestController {
     private final RequestServiceImpl requestService;
 
-    @GetMapping
-    public Page<RequestDto> getAll(String requestUsername, Pageable pageable) {
-        return requestService.findByRequestBy(requestUsername, pageable);
-    }
-    @GetMapping("/{id}")
-    public Optional<RequestDto> findById(@PathVariable Long requestId){
-        return requestService.findById(requestId);
-    }
-
-    @GetMapping("/delete/{requestId}")
-    public Optional<RequestDto> deleteById(@PathVariable("requestId") Long requestId){
-        return requestService.deleteById(requestId);
-    }
+//    @GetMapping
+//    public Page<RequestDto> getAll(Pageable pageable) {
+//        return requestService.getAllRequest(pageable);
+//    }
+//    @GetMapping("/{id}")
+//    public Optional<RequestDto> findById(@PathVariable Long requestId){
+//        return requestService.findById(requestId);
+//    }
+//
+//    @GetMapping("/delete/{requestId}")
+//    public Optional<RequestDto> deleteById(@PathVariable("requestId") Long requestId){
+//        return requestService.deleteById(requestId);
+//    }
     @PostMapping
-    public RequestDto create(@RequestBody RequestDto request){
+    public Request create(@RequestBody RequestDto request){
         return requestService.create(request);
     }
 
-    @PostMapping("/update/{id}")
-    public List<RequestDto> update(@RequestBody RequestDto request, @PathVariable Long requestId){
-        return requestService.update(request, requestId);
-    }
+//    @PostMapping("/update/{id}")
+//    public List<RequestDto> update(@RequestBody RequestDto request, @PathVariable Long requestId){
+//        return requestService.update(request, requestId);
+//    }
 
 }
