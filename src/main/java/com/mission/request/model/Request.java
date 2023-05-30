@@ -1,5 +1,6 @@
 package com.mission.request.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mission.request.enums.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -10,6 +11,7 @@ import lombok.ToString;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -30,7 +32,7 @@ public class Request {
     private LocalDateTime requestDateTime;
     private String department;
     private String transportation;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "request_approval",
             joinColumns = @JoinColumn(name = "requests_id"),
@@ -38,23 +40,23 @@ public class Request {
     )
     private Set<Approval> approval;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "request_members",
             joinColumns = @JoinColumn(name = "requests_id"),
             inverseJoinColumns = @JoinColumn(name = "members_id")
     )
-    @ToString.Exclude
-    private List<Members> members = new ArrayList<>();
+    private List<Members> members;
     private String purpose;
     private LocalDate missionDate;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
+    private Date startDate;
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
+    private Date endDate;
     private String comment;
     private String sbiAccountName;
     private String amount;
     private String sbiSavingAccount;
-//    @Enumerated(EnumType.STRING)
     private Status status;
 
     public LocalDateTime getRequestDate() {

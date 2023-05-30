@@ -32,4 +32,13 @@ public class CustomizedExceptionHandling extends ResponseEntityExceptionHandler 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @ExceptionHandler(StatusException.class)
+    public ResponseEntity<Object> status(StatusException exception, WebRequest webRequest){
+        ExceptionResponse response = new ExceptionResponse();
+        response.setStatusCode(204);
+        response.setMessage("You not able to update.");
+        response.setDateTime(LocalDateTime.now());
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
 }

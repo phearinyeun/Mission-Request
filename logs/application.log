@@ -1,0 +1,148 @@
+2023-05-30T15:10:37.938+07:00  INFO 12024 --- [main] com.mission.request.App                  : Starting App using Java 19.0.2 with PID 12024 (D:\Development\Mission-Request\target\classes started by phearin.yeun in D:\Development\Mission-Request)
+2023-05-30T15:10:37.943+07:00  INFO 12024 --- [main] com.mission.request.App                  : No active profile set, falling back to 1 default profile: "default"
+2023-05-30T15:10:38.822+07:00  INFO 12024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-30T15:10:38.968+07:00  INFO 12024 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 129 ms. Found 3 JPA repository interfaces.
+2023-05-30T15:10:39.910+07:00  INFO 12024 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2023-05-30T15:10:39.920+07:00  INFO 12024 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-30T15:10:39.921+07:00  INFO 12024 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-30T15:10:40.031+07:00  INFO 12024 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-30T15:10:40.031+07:00  INFO 12024 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2019 ms
+2023-05-30T15:10:40.262+07:00  INFO 12024 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-30T15:10:40.330+07:00  INFO 12024 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-30T15:10:40.614+07:00  INFO 12024 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-30T15:10:40.860+07:00  INFO 12024 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5d1bdd4a
+2023-05-30T15:10:40.861+07:00  INFO 12024 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-30T15:10:40.894+07:00  INFO 12024 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-30T15:10:41.078+07:00 ERROR 12024 --- [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Association 'com.mission.request.model.Request.members' targets the type 'java.lang.String' which is not an '@Entity' type
+2023-05-30T15:10:41.079+07:00  WARN 12024 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Association 'com.mission.request.model.Request.members' targets the type 'java.lang.String' which is not an '@Entity' type
+2023-05-30T15:10:41.080+07:00  INFO 12024 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-30T15:10:41.163+07:00  INFO 12024 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-30T15:10:41.167+07:00  INFO 12024 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-30T15:10:41.183+07:00  INFO 12024 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-05-30T15:10:41.216+07:00 ERROR 12024 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Association 'com.mission.request.model.Request.members' targets the type 'java.lang.String' which is not an '@Entity' type
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1132) ~[spring-context-6.0.8.jar:6.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:907) ~[spring-context-6.0.8.jar:6.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584) ~[spring-context-6.0.8.jar:6.0.8]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.6.jar:3.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-3.0.6.jar:3.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434) ~[spring-boot-3.0.6.jar:3.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-3.0.6.jar:3.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304) ~[spring-boot-3.0.6.jar:3.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293) ~[spring-boot-3.0.6.jar:3.0.6]
+	at com.mission.request.App.main(App.java:10) ~[classes/:na]
+Caused by: org.hibernate.AnnotationException: Association 'com.mission.request.model.Request.members' targets the type 'java.lang.String' which is not an '@Entity' type
+	at org.hibernate.cfg.annotations.CollectionBinder.detectManyToManyProblems(CollectionBinder.java:2544) ~[hibernate-core-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.cfg.annotations.CollectionBinder.bindManyToManySecondPass(CollectionBinder.java:2097) ~[hibernate-core-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1593) ~[hibernate-core-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:1524) ~[hibernate-core-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:47) ~[hibernate-core-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1782) ~[hibernate-core-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1739) ~[hibernate-core-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:300) ~[hibernate-core-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1348) ~[hibernate-core-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1419) ~[hibernate-core-6.1.7.Final.jar:6.1.7.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.0.8.jar:6.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376) ~[spring-orm-6.0.8.jar:6.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.0.8.jar:6.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.0.8.jar:6.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352) ~[spring-orm-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.8.jar:6.0.8]
+	... 16 common frames omitted
+
+2023-05-30T15:14:27.973+07:00  INFO 12964 --- [main] com.mission.request.App                  : Starting App using Java 19.0.2 with PID 12964 (D:\Development\Mission-Request\target\classes started by phearin.yeun in D:\Development\Mission-Request)
+2023-05-30T15:14:27.978+07:00  INFO 12964 --- [main] com.mission.request.App                  : No active profile set, falling back to 1 default profile: "default"
+2023-05-30T15:14:28.722+07:00  INFO 12964 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-30T15:14:28.885+07:00  INFO 12964 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 148 ms. Found 3 JPA repository interfaces.
+2023-05-30T15:14:29.682+07:00  INFO 12964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2023-05-30T15:14:29.697+07:00  INFO 12964 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-30T15:14:29.697+07:00  INFO 12964 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-30T15:14:29.841+07:00  INFO 12964 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-30T15:14:29.842+07:00  INFO 12964 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1792 ms
+2023-05-30T15:14:30.103+07:00  INFO 12964 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-30T15:14:30.173+07:00  INFO 12964 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-30T15:14:30.505+07:00  INFO 12964 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-30T15:14:30.715+07:00  INFO 12964 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@21b51e59
+2023-05-30T15:14:30.717+07:00  INFO 12964 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-30T15:14:30.751+07:00  INFO 12964 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-30T15:14:31.920+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:14:31.921+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "request_approval" does not exist, skipping
+2023-05-30T15:14:31.922+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:14:31.922+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "request_approval" does not exist, skipping
+2023-05-30T15:14:31.922+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:14:31.922+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "request_members" does not exist, skipping
+2023-05-30T15:14:31.923+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:14:31.923+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "request_members" does not exist, skipping
+2023-05-30T15:14:31.924+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:14:31.924+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "approvals" does not exist, skipping
+2023-05-30T15:14:31.925+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:14:31.925+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "members" does not exist, skipping
+2023-05-30T15:14:31.926+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:14:31.926+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "request_approval" does not exist, skipping
+2023-05-30T15:14:31.926+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:14:31.927+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "request_members" does not exist, skipping
+2023-05-30T15:14:31.927+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:14:31.927+07:00  WARN 12964 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "requests" does not exist, skipping
+2023-05-30T15:14:32.000+07:00  INFO 12964 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-30T15:14:32.009+07:00  INFO 12964 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-30T15:14:32.442+07:00  WARN 12964 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-30T15:14:32.927+07:00  INFO 12964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2023-05-30T15:14:32.938+07:00  INFO 12964 --- [main] com.mission.request.App                  : Started App in 5.612 seconds (process running for 6.165)
+2023-05-30T15:41:19.841+07:00  INFO 12964 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-30T15:41:19.857+07:00  INFO 12964 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-05-30T15:41:19.906+07:00  INFO 12964 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-30T15:41:19.913+07:00  INFO 12964 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-30T15:42:22.899+07:00  INFO 19124 --- [main] com.mission.request.App                  : Starting App using Java 19.0.2 with PID 19124 (D:\Development\Mission-Request\target\classes started by phearin.yeun in D:\Development\Mission-Request)
+2023-05-30T15:42:22.903+07:00  INFO 19124 --- [main] com.mission.request.App                  : No active profile set, falling back to 1 default profile: "default"
+2023-05-30T15:42:23.674+07:00  INFO 19124 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-30T15:42:23.779+07:00  INFO 19124 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95 ms. Found 3 JPA repository interfaces.
+2023-05-30T15:42:24.480+07:00  INFO 19124 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2023-05-30T15:42:24.494+07:00  INFO 19124 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-30T15:42:24.494+07:00  INFO 19124 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-30T15:42:24.614+07:00  INFO 19124 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-30T15:42:24.614+07:00  INFO 19124 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1619 ms
+2023-05-30T15:42:24.897+07:00  INFO 19124 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-30T15:42:25.034+07:00  INFO 19124 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-30T15:42:25.486+07:00  INFO 19124 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-30T15:42:25.702+07:00  INFO 19124 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4f664bee
+2023-05-30T15:42:25.704+07:00  INFO 19124 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-30T15:42:25.746+07:00  INFO 19124 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-30T15:42:26.823+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:42:26.823+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "request_approval" does not exist, skipping
+2023-05-30T15:42:26.824+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:42:26.824+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "request_approval" does not exist, skipping
+2023-05-30T15:42:26.824+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:42:26.825+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "request_members" does not exist, skipping
+2023-05-30T15:42:26.825+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:42:26.825+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "request_members" does not exist, skipping
+2023-05-30T15:42:26.825+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:42:26.825+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "approvals" does not exist, skipping
+2023-05-30T15:42:26.826+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:42:26.826+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "members" does not exist, skipping
+2023-05-30T15:42:26.826+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:42:26.826+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "request_approval" does not exist, skipping
+2023-05-30T15:42:26.828+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:42:26.828+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "request_members" does not exist, skipping
+2023-05-30T15:42:26.828+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-30T15:42:26.828+07:00  WARN 19124 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "requests" does not exist, skipping
+2023-05-30T15:42:26.879+07:00  INFO 19124 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-30T15:42:26.888+07:00  INFO 19124 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-30T15:42:27.345+07:00  WARN 19124 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-30T15:42:27.762+07:00  INFO 19124 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2023-05-30T15:42:27.771+07:00  INFO 19124 --- [main] com.mission.request.App                  : Started App in 5.54 seconds (process running for 6.148)
+2023-05-30T16:25:47.788+07:00  WARN 19124 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m51s369ms490µs300ns).
+2023-05-30T16:29:26.039+07:00  INFO 19124 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-30T16:29:26.059+07:00  INFO 19124 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-05-30T16:29:26.108+07:00  INFO 19124 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-30T16:29:26.120+07:00  INFO 19124 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

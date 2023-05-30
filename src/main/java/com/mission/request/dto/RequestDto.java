@@ -1,5 +1,6 @@
 package com.mission.request.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mission.request.enums.Status;
 import com.mission.request.model.Approval;
 import com.mission.request.model.Members;
@@ -8,6 +9,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -24,15 +26,19 @@ public class RequestDto {
     private String department;
     private String transportation;
     private Set<Approval> approval;
-    private List<Members> members;
+    private List<Members> teamMembers;
     private String purpose;
     private LocalDate missionDate;
-    private LocalDate missionStartDate;
-    private LocalDate missionEndDate;
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
+    private Date missionStartDate;
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
+    private Date missionEndDate;
     private String comment;
     private String sbiAccountName;
     private int amount;
     private int sbiSavingAccount;
     private Status status;
-
+    public void setRequestDateTime(LocalDateTime requestDateTime) {
+        this.requestDateTime = LocalDateTime.now();
+    }
 }
