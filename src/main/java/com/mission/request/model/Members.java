@@ -25,6 +25,6 @@ public class Members {
 
     private String name;
     private String role;
-    @ManyToMany(mappedBy = "members")
-    Set<Request> requests;
+    @ManyToMany(mappedBy = "members", fetch = FetchType.LAZY)
+    private Set<Request> request = new HashSet<>();
 }

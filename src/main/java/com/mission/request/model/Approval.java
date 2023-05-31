@@ -25,7 +25,7 @@ public class Approval {
     @Column(name = "id", nullable = false)
     private Long id;
     private String username;
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "approval")
+    @ManyToMany(mappedBy = "approval", fetch = FetchType.LAZY)
     private Set<Request> request;
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     private Date requestDate;

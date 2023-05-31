@@ -10,10 +10,7 @@ import lombok.ToString;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Getter
 @Setter
@@ -46,7 +43,7 @@ public class Request {
             joinColumns = @JoinColumn(name = "requests_id"),
             inverseJoinColumns = @JoinColumn(name = "members_id")
     )
-    private List<Members> members;
+    private List<Members> members = new ArrayList<>();
     private String purpose;
     private LocalDate missionDate;
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
